@@ -22,6 +22,10 @@
   .role { margin:16px 0 0; color:#e2edf2; font-size:clamp(17px,2vw,25px); line-height:1.45; font-weight:700; letter-spacing:.04em; }
   .contact { position:absolute; z-index:3; right:clamp(40px,6.5vw,128px); bottom:164px; width:236px; padding:14px 17px; color:#fff; background:#071420dc; border-left:6px solid var(--yellow); font-size:13px; line-height:1.62; box-shadow:8px 8px 0 #e8584140; backdrop-filter:blur(8px); }
   .contact b { color:var(--yellow); font:800 11px/1 Arial,sans-serif; letter-spacing:.12em; }
+  .audio-control { position:absolute; z-index:4; top:28px; right:clamp(40px,6.5vw,128px); display:inline-flex; align-items:center; gap:10px; min-height:42px; padding:10px 14px; color:#fff; background:#071420c9; border:1px solid #ffffff66; border-radius:999px; font:800 12px/1 Arial,sans-serif; letter-spacing:.08em; cursor:pointer; backdrop-filter:blur(8px); transition:background .2s ease,transform .2s ease,border-color .2s ease; }
+  .audio-control:hover,.audio-control:focus-visible { outline:0; transform:translateY(-2px); background:#16364bdd; border-color:var(--yellow); }
+  .audio-control.is-audible { border-color:var(--yellow); }
+  .audio-control svg { width:17px; height:17px; fill:currentColor; }
   .landing-stats { position:absolute; z-index:3; right:0; bottom:0; left:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; padding:0 clamp(40px,6.5vw,128px) 28px; }
   .stat-card { min-height:116px; padding:20px 22px; color:#fff; background:#071420d9; border:1px solid #ffffff45; border-top:5px solid var(--yellow); cursor:default; backdrop-filter:blur(10px); transition:transform .26s ease,background .26s ease,box-shadow .26s ease; }
   .stat-card:nth-child(2) { border-top-color:#fff; }
@@ -74,6 +78,7 @@
     .hero { min-height:100svh; align-items:flex-start; padding:clamp(72px,12vh,150px) 36px 178px; }
     .hero-copy { max-width:620px; }
     .contact { right:36px; bottom:142px; }
+    .audio-control { right:36px; }
     .landing-stats { gap:10px; padding:0 36px 18px; }
     .stat-card { min-height:108px; padding:17px; }
     .stat-label { font-size:12px; }
@@ -91,6 +96,7 @@
     h1 { font-size:43px; }
     .role { max-width:290px; font-size:17px; }
     .contact { left:24px; right:auto; bottom:146px; width:235px; }
+    .audio-control { top:18px; right:18px; min-height:38px; padding:9px 11px; font-size:10px; }
     .landing-stats { gap:6px; padding:0 12px 17px; }
     .stat-card { min-height:100px; padding:14px 10px; }
     .stat-number { font-size:30px; }
@@ -114,10 +120,12 @@
 </head>
 <body>
 <main class="shell">
+  <audio id="background-audio" autoplay muted loop preload="auto"><source src="assets/enter-moment-background.mp3" type="audio/mpeg"></audio>
   <header class="hero">
     <div class="hero-video" aria-hidden="true"><video autoplay muted loop playsinline preload="metadata"><source src="assets/course-welcome-background.mp4" type="video/mp4"></video></div>
     <div class="grid"></div>
     <div class="hero-copy"><p class="label">LECTURER PROFILE / 2026.06</p><h1>莊哲昀 AJ</h1><p class="role">生成式 AI 教學 × 組織工作流賦能</p></div>
+    <button class="audio-control" id="audio-control" type="button" aria-pressed="false" aria-label="開啟背景音樂"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h4l5 4V6l-5 4H3zm12.5 2c0-1.18-.66-2.2-1.63-2.7v5.4A2.99 2.99 0 0 0 15.5 12zM14 3.23v2.06A7.002 7.002 0 0 1 14 18.7v2.06c3.89-.86 6.8-4.33 6.8-8.77S17.89 4.09 14 3.23z"/></svg><span id="audio-control-label">開啟音樂</span></button>
     <div class="contact"><b>CONTACT</b><br>hello@ahadigit.work<br>www.ahadigit.work</div>
     <div class="landing-stats" aria-label="講師實績">
       <article class="stat-card" tabindex="0"><span class="stat-number">10K+</span><span class="stat-label">累積參與培訓學員</span></article>
@@ -169,6 +177,31 @@
     });
   }, { threshold: 0.22 });
   revealTargets.forEach((target) => revealObserver.observe(target));
+
+  const backgroundAudio = document.querySelector('#background-audio');
+  const audioControl = document.querySelector('#audio-control');
+  const audioControlLabel = document.querySelector('#audio-control-label');
+  backgroundAudio.volume = 0.24;
+  const updateAudioControl = () => {
+    const audible = !backgroundAudio.paused && !backgroundAudio.muted;
+    audioControl.classList.toggle('is-audible', audible);
+    audioControl.setAttribute('aria-pressed', String(audible));
+    audioControl.setAttribute('aria-label', audible ? '靜音背景音樂' : '開啟背景音樂');
+    audioControlLabel.textContent = audible ? '靜音' : '開啟音樂';
+  };
+  backgroundAudio.addEventListener('play', updateAudioControl);
+  backgroundAudio.addEventListener('pause', updateAudioControl);
+  backgroundAudio.addEventListener('volumechange', updateAudioControl);
+  backgroundAudio.play().catch(updateAudioControl);
+  audioControl.addEventListener('click', () => {
+    if (backgroundAudio.paused) {
+      backgroundAudio.muted = false;
+      backgroundAudio.play().catch(updateAudioControl);
+    } else {
+      backgroundAudio.muted = !backgroundAudio.muted;
+    }
+    updateAudioControl();
+  });
 </script>
 </body>
 </html>
