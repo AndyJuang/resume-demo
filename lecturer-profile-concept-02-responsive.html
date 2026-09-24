@@ -11,23 +11,36 @@
   html { background:var(--paper); scroll-behavior:smooth; }
   body { margin:0; color:var(--ink); background:var(--paper); font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; -webkit-font-smoothing:antialiased; }
   .shell { width:100%; min-height:100vh; overflow:hidden; background:var(--paper); }
-  .hero { position:relative; min-height:330px; padding:58px clamp(40px,6.5vw,128px); overflow:hidden; background:var(--ink); border-bottom:2px solid var(--ink); isolation:isolate; }
+  .hero { position:relative; min-height:100svh; display:flex; align-items:center; padding:clamp(48px,7vw,132px) clamp(40px,6.5vw,128px) 184px; overflow:hidden; background:var(--ink); border-bottom:2px solid var(--ink); isolation:isolate; }
   .hero-video { position:absolute; z-index:0; inset:0; overflow:hidden; }
   .hero-video video { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
-  .hero:after { content:""; position:absolute; z-index:1; inset:0; background:linear-gradient(90deg,rgba(249,251,252,.97) 0%,rgba(249,251,252,.90) 45%,rgba(249,251,252,.36) 100%); pointer-events:none; }
-  .grid { position:absolute; z-index:2; inset:0; opacity:.11; background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px); background-size:34px 34px; pointer-events:none; }
-  .art { position:absolute; z-index:2; width:clamp(420px,29vw,600px); right:clamp(-130px,-5vw,-72px); top:-106px; transform:rotate(-8deg); opacity:.24; mix-blend-mode:multiply; }
-  .hero-copy { position:relative; z-index:3; max-width:650px; }
-  .label { margin:0 0 15px; color:var(--coral); font:800 12px/1 Arial,sans-serif; letter-spacing:.18em; }
-  h1 { margin:0; font-size:clamp(42px,5vw,70px); line-height:1; letter-spacing:.08em; font-weight:900; }
-  .role { margin:16px 0 0; color:#344a60; font-size:clamp(17px,2vw,23px); line-height:1.45; font-weight:700; letter-spacing:.04em; }
-  .contact { position:absolute; z-index:3; right:clamp(40px,6.5vw,128px); bottom:39px; width:236px; padding:14px 17px; color:#fff; background:var(--ink); border-left:6px solid var(--yellow); font-size:13px; line-height:1.62; box-shadow:8px 8px 0 #e8584130; }
+  .hero:after { content:""; position:absolute; z-index:1; inset:0; background:linear-gradient(90deg,rgba(7,20,32,.93) 0%,rgba(7,20,32,.76) 44%,rgba(7,20,32,.24) 100%); pointer-events:none; }
+  .grid { position:absolute; z-index:2; inset:0; opacity:.15; background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px); background-size:34px 34px; pointer-events:none; }
+  .hero-copy { position:relative; z-index:3; max-width:760px; color:#fff; }
+  .label { margin:0 0 15px; color:var(--yellow); font:800 12px/1 Arial,sans-serif; letter-spacing:.18em; }
+  h1 { margin:0; color:#fff; font-size:clamp(48px,6vw,88px); line-height:1; letter-spacing:.08em; font-weight:900; text-shadow:0 3px 18px #07142055; }
+  .role { margin:16px 0 0; color:#e2edf2; font-size:clamp(17px,2vw,25px); line-height:1.45; font-weight:700; letter-spacing:.04em; }
+  .contact { position:absolute; z-index:3; right:clamp(40px,6.5vw,128px); bottom:164px; width:236px; padding:14px 17px; color:#fff; background:#071420dc; border-left:6px solid var(--yellow); font-size:13px; line-height:1.62; box-shadow:8px 8px 0 #e8584140; backdrop-filter:blur(8px); }
   .contact b { color:var(--yellow); font:800 11px/1 Arial,sans-serif; letter-spacing:.12em; }
+  .landing-stats { position:absolute; z-index:3; right:0; bottom:0; left:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; padding:0 clamp(40px,6.5vw,128px) 28px; }
+  .stat-card { min-height:116px; padding:20px 22px; color:#fff; background:#071420d9; border:1px solid #ffffff45; border-top:5px solid var(--yellow); cursor:default; backdrop-filter:blur(10px); transition:transform .26s ease,background .26s ease,box-shadow .26s ease; }
+  .stat-card:nth-child(2) { border-top-color:#fff; }
+  .stat-card:nth-child(3) { border-top-color:var(--coral); }
+  .stat-card:hover,.stat-card:focus-visible { outline:0; transform:translateY(-10px); background:#102c40ed; box-shadow:0 15px 28px #07142055; }
+  .stat-number { display:block; font:900 clamp(32px,3.2vw,48px)/.9 Arial,sans-serif; letter-spacing:-.07em; }
+  .stat-label { display:block; margin-top:9px; color:#e4eef3; font-size:13px; font-weight:700; }
+  .scroll-cue { position:absolute; z-index:3; right:clamp(40px,6.5vw,128px); bottom:26px; color:#fff; font:700 10px/1 Arial,sans-serif; letter-spacing:.14em; opacity:.8; }
+  .scroll-cue:after { content:"↓"; margin-left:8px; color:var(--yellow); font-size:16px; }
+  .intro-screen { min-height:100svh; display:grid; place-items:center; padding:70px clamp(40px,12vw,250px); background:linear-gradient(135deg,#fff 0%,#f0f6f8 100%); }
+  .intro-card { max-width:980px; padding:clamp(34px,5vw,74px); background:#fff; border-top:10px solid var(--yellow); box-shadow:18px 18px 0 #d9e9ee; }
+  .intro-kicker { margin:0 0 20px; color:var(--coral); font:800 12px/1 Arial,sans-serif; letter-spacing:.16em; }
+  .intro { margin:0; font-size:clamp(22px,2.7vw,38px); line-height:1.65; font-weight:750; letter-spacing:.01em; }
+  .intro strong { color:var(--coral); }
+  .reveal { opacity:0; transform:translateY(42px); transition:opacity .85s ease,transform .85s cubic-bezier(.2,.8,.2,1); }
+  .reveal.is-visible { opacity:1; transform:none; }
   .layout { display:grid; grid-template-columns:minmax(0,1fr) clamp(300px,20vw,410px); align-items:stretch; }
   .main { padding:48px clamp(40px,6.5vw,128px) 64px; min-width:0; }
   .aside { padding:42px clamp(28px,2.2vw,44px); background:var(--panel); border-left:1px solid #ccdde3; }
-  .intro { max-width:760px; margin:0; padding:0 0 30px; border-bottom:1px solid var(--line); font-size:18px; line-height:1.8; font-weight:650; }
-  .intro strong { color:var(--coral); }
   .section-title { display:flex; align-items:center; gap:12px; margin:33px 0 18px; color:var(--ink); font:800 13px/1 Arial,sans-serif; letter-spacing:.15em; }
   .section-title:before { content:""; width:40px; height:8px; background:var(--yellow); }
   .pillars { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; max-width:1320px; }
@@ -51,9 +64,6 @@
   .video-label:before { content:""; width:28px; height:7px; background:var(--coral); }
   .video-frame { aspect-ratio:16 / 9; overflow:hidden; background:var(--ink); box-shadow:10px 10px 0 #f6c52a; }
   .video-frame iframe { display:block; width:100%; height:100%; border:0; }
-  .metric { padding:0 0 21px; margin:0 0 19px; border-bottom:1px solid var(--line); }
-  .metric strong { display:block; font:900 39px/.92 Arial,sans-serif; letter-spacing:-.07em; }
-  .metric span { display:block; margin-top:8px; font-size:12px; font-weight:700; }
   .aside-title { margin:31px 0 11px; color:var(--coral); font:800 12px/1 Arial,sans-serif; letter-spacing:.12em; }
   .mini-list { margin:0; padding:0; list-style:none; font-size:12.5px; line-height:1.55; font-weight:600; }
   .mini-list li { padding:8px 0; border-bottom:1px solid #bdd0d8; }
@@ -61,30 +71,44 @@
   footer b { color:var(--coral); }
   @media (max-width: 920px) {
     .shell { width:100%; margin:0; }
-    .hero { min-height:350px; padding:44px 36px; }
-    .art { width:330px; right:-112px; top:-50px; opacity:.92; }
-    .contact { right:36px; bottom:31px; }
+    .hero { min-height:100svh; align-items:flex-start; padding:clamp(72px,12vh,150px) 36px 178px; }
+    .hero-copy { max-width:620px; }
+    .contact { right:36px; bottom:142px; }
+    .landing-stats { gap:10px; padding:0 36px 18px; }
+    .stat-card { min-height:108px; padding:17px; }
+    .stat-label { font-size:12px; }
+    .scroll-cue { right:36px; bottom:14px; }
+    .intro-screen { min-height:85svh; padding:56px 72px; }
     .layout { grid-template-columns:1fr; }
     .aside { display:grid; grid-template-columns:repeat(3,1fr); gap:0 20px; padding:30px 36px 35px; border-left:0; border-top:1px solid #ccdde3; }
-    .metric { margin:0 0 26px; }
     .aside-title { grid-column:1/-1; }
     .mini-list { grid-column:span 1; }
     .aside .mini-list + .aside-title { grid-column:1/-1; }
   }
   @media (max-width: 620px) {
-    .hero { min-height:370px; padding:35px 24px; }
-    .art { width:280px; right:-116px; top:-44px; }
+    .hero { min-height:100svh; padding:74px 24px 182px; }
     .hero-video video { object-position:62% center; }
     h1 { font-size:43px; }
     .role { max-width:290px; font-size:17px; }
-    .contact { left:24px; right:auto; bottom:27px; width:235px; }
+    .contact { left:24px; right:auto; bottom:146px; width:235px; }
+    .landing-stats { gap:6px; padding:0 12px 17px; }
+    .stat-card { min-height:100px; padding:14px 10px; }
+    .stat-number { font-size:30px; }
+    .stat-label { margin-top:6px; font-size:10px; line-height:1.35; }
+    .scroll-cue { display:none; }
+    .intro-screen { min-height:80svh; padding:42px 24px; }
+    .intro-card { padding:30px 24px; box-shadow:10px 10px 0 #d9e9ee; }
+    .intro { font-size:22px; }
     .main { padding:32px 24px 40px; }
-    .intro { font-size:16px; }
     .pillars,.services { grid-template-columns:1fr; gap:12px; }
     .pillar { min-height:0; padding:18px; }
     .aside { display:block; padding:30px 24px; }
-    .metric { margin-bottom:18px; padding-bottom:18px; }
     footer { padding:18px 24px; font-size:10px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; }
+    .hero-video video { display:none; }
+    .reveal { opacity:1; transform:none; }
   }
 </style>
 </head>
@@ -92,13 +116,21 @@
 <main class="shell">
   <header class="hero">
     <div class="hero-video" aria-hidden="true"><video autoplay muted loop playsinline preload="metadata"><source src="assets/course-welcome-background.mp4" type="video/mp4"></video></div>
-    <div class="grid"></div><img class="art" src="assets/aha-moment-digital.svg" alt="">
+    <div class="grid"></div>
     <div class="hero-copy"><p class="label">LECTURER PROFILE / 2026.06</p><h1>莊哲昀 AJ</h1><p class="role">生成式 AI 教學 × 組織工作流賦能</p></div>
     <div class="contact"><b>CONTACT</b><br>hello@ahadigit.work<br>www.ahadigit.work</div>
+    <div class="landing-stats" aria-label="講師實績">
+      <article class="stat-card" tabindex="0"><span class="stat-number">10K+</span><span class="stat-label">累積參與培訓學員</span></article>
+      <article class="stat-card" tabindex="0"><span class="stat-number">240K</span><span class="stat-label">《泛科學院》累積訂閱</span></article>
+      <article class="stat-card" tabindex="0"><span class="stat-number">95%+</span><span class="stat-label">學員課後立即應用</span></article>
+    </div>
+    <span class="scroll-cue" aria-hidden="true">SCROLL TO EXPLORE</span>
   </header>
+  <section class="intro-screen reveal" aria-labelledby="intro-title">
+    <div class="intro-card"><p class="intro-kicker" id="intro-title">INTRODUCTION</p><p class="intro">我是莊哲昀（AJ），現任那個數位有限公司執行長。長期協助企業、公部門、教育機構及非營利組織導入 AI 應用，累積逾萬名學員參與培訓。<strong>讓 AI 成為可持續的生產力</strong>，始終是我設計每一堂課的出發點。</p></div>
+  </section>
   <div class="layout">
     <section class="main">
-      <p class="intro">我是莊哲昀（AJ），現任那個數位有限公司執行長。長期協助企業、公部門、教育機構及非營利組織導入 AI 應用，累積逾萬名學員參與培訓。<strong>讓 AI 成為可持續的生產力</strong>，始終是我設計每一堂課的出發點。</p>
       <h2 class="section-title">FROM TOOL TO WORKFLOW</h2>
       <div class="pillars">
         <article class="pillar"><span class="num">01</span><h3>AI 轉譯</h3><p>把複雜技術與架構，轉為無技術背景者也能理解並操作的實務步驟。</p></article>
@@ -119,9 +151,6 @@
       </section>
     </section>
     <aside class="aside">
-      <div class="metric"><strong>10K+</strong><span>累積參與培訓學員</span></div>
-      <div class="metric"><strong>240K</strong><span>《泛科學院》累積訂閱</span></div>
-      <div class="metric"><strong>95%+</strong><span>學員課後立即應用</span></div>
       <h2 class="aside-title">現職</h2><ul class="mini-list"><li>那個數位有限公司執行長</li><li>《欸那個 AJ》YouTube 頻道主持人</li><li>Google Gemini 官方認證講師</li><li>雲間客工作室共同創辦人</li></ul>
       <h2 class="aside-title">專業經歷</h2><ul class="mini-list"><li>《泛科學院》YouTube 頻道主持人</li><li>台灣數位文化協會技術長</li><li>泛科知識股份有限公司南區營運部技術總監</li><li>趨勢科技軟體測試助理工程師</li></ul>
       <h2 class="aside-title">合作對象（節錄）</h2><ul class="mini-list"><li>Google、YouTube、IKEA、KPMG 安侯建業</li><li>司法院法官學院、外交部、教育部青年署</li><li>台灣大學、政治大學、陽明交通大學</li><li>中衛中心、台灣數位文化協會</li></ul>
@@ -129,5 +158,17 @@
   </div>
   <footer><span><b>AHA DIGITAL</b> / AI EDUCATION & TRANSFORMATION</span><span>莊哲昀 AJ</span></footer>
 </main>
+<script>
+  const revealTargets = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.22 });
+  revealTargets.forEach((target) => revealObserver.observe(target));
+</script>
 </body>
 </html>
