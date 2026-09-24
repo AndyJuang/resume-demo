@@ -11,14 +11,17 @@
   html { background:var(--paper); scroll-behavior:smooth; }
   body { margin:0; color:var(--ink); background:var(--paper); font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; -webkit-font-smoothing:antialiased; }
   .shell { width:100%; min-height:100vh; overflow:hidden; background:var(--paper); }
-  .hero { position:relative; min-height:330px; padding:58px clamp(40px,6.5vw,128px); overflow:hidden; background:var(--paper); border-bottom:2px solid var(--ink); }
-  .grid { position:absolute; inset:0; opacity:.07; background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px); background-size:34px 34px; }
-  .art { position:absolute; z-index:0; width:clamp(420px,29vw,600px); right:clamp(-130px,-5vw,-72px); top:-106px; transform:rotate(-8deg); }
-  .hero-copy { position:relative; z-index:1; max-width:650px; }
+  .hero { position:relative; min-height:330px; padding:58px clamp(40px,6.5vw,128px); overflow:hidden; background:var(--ink); border-bottom:2px solid var(--ink); isolation:isolate; }
+  .hero-video { position:absolute; z-index:0; inset:0; overflow:hidden; }
+  .hero-video video { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+  .hero:after { content:""; position:absolute; z-index:1; inset:0; background:linear-gradient(90deg,rgba(249,251,252,.97) 0%,rgba(249,251,252,.90) 45%,rgba(249,251,252,.36) 100%); pointer-events:none; }
+  .grid { position:absolute; z-index:2; inset:0; opacity:.11; background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px); background-size:34px 34px; pointer-events:none; }
+  .art { position:absolute; z-index:2; width:clamp(420px,29vw,600px); right:clamp(-130px,-5vw,-72px); top:-106px; transform:rotate(-8deg); opacity:.24; mix-blend-mode:multiply; }
+  .hero-copy { position:relative; z-index:3; max-width:650px; }
   .label { margin:0 0 15px; color:var(--coral); font:800 12px/1 Arial,sans-serif; letter-spacing:.18em; }
   h1 { margin:0; font-size:clamp(42px,5vw,70px); line-height:1; letter-spacing:.08em; font-weight:900; }
   .role { margin:16px 0 0; color:#344a60; font-size:clamp(17px,2vw,23px); line-height:1.45; font-weight:700; letter-spacing:.04em; }
-  .contact { position:absolute; z-index:2; right:clamp(40px,6.5vw,128px); bottom:39px; width:236px; padding:14px 17px; color:#fff; background:var(--ink); border-left:6px solid var(--yellow); font-size:13px; line-height:1.62; box-shadow:8px 8px 0 #e8584130; }
+  .contact { position:absolute; z-index:3; right:clamp(40px,6.5vw,128px); bottom:39px; width:236px; padding:14px 17px; color:#fff; background:var(--ink); border-left:6px solid var(--yellow); font-size:13px; line-height:1.62; box-shadow:8px 8px 0 #e8584130; }
   .contact b { color:var(--yellow); font:800 11px/1 Arial,sans-serif; letter-spacing:.12em; }
   .layout { display:grid; grid-template-columns:minmax(0,1fr) clamp(300px,20vw,410px); align-items:stretch; }
   .main { padding:48px clamp(40px,6.5vw,128px) 64px; min-width:0; }
@@ -71,6 +74,7 @@
   @media (max-width: 620px) {
     .hero { min-height:370px; padding:35px 24px; }
     .art { width:280px; right:-116px; top:-44px; }
+    .hero-video video { object-position:62% center; }
     h1 { font-size:43px; }
     .role { max-width:290px; font-size:17px; }
     .contact { left:24px; right:auto; bottom:27px; width:235px; }
@@ -87,6 +91,7 @@
 <body>
 <main class="shell">
   <header class="hero">
+    <div class="hero-video" aria-hidden="true"><video autoplay muted loop playsinline preload="metadata"><source src="assets/course-welcome-background.mp4" type="video/mp4"></video></div>
     <div class="grid"></div><img class="art" src="assets/aha-moment-digital.svg" alt="">
     <div class="hero-copy"><p class="label">LECTURER PROFILE / 2026.06</p><h1>莊哲昀 AJ</h1><p class="role">生成式 AI 教學 × 組織工作流賦能</p></div>
     <div class="contact"><b>CONTACT</b><br>hello@ahadigit.work<br>www.ahadigit.work</div>
