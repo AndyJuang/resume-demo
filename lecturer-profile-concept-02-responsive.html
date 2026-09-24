@@ -6,35 +6,35 @@
 <meta name="theme-color" content="#10202f">
 <title>莊哲昀 AJ｜生成式 AI 講師簡歷</title>
 <style>
-  :root { --ink:#10202f; --muted:#526675; --paper:#f9fbfc; --panel:#e6f0f4; --line:#9ab0bc; --yellow:#f6c52a; --coral:#e85841; --max:1180px; }
+  :root { --ink:#10202f; --muted:#526675; --paper:#f9fbfc; --panel:#e6f0f4; --line:#9ab0bc; --yellow:#f6c52a; --coral:#e85841; }
   * { box-sizing:border-box; }
-  html { background:#e7edf0; scroll-behavior:smooth; }
-  body { margin:0; color:var(--ink); background:linear-gradient(135deg,#edf4f6,#f9fbfc 48%,#e8edf1); font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; -webkit-font-smoothing:antialiased; }
-  .shell { width:min(100% - 48px,var(--max)); margin:24px auto; overflow:hidden; background:var(--paper); border:1px solid #d7e2e7; border-radius:18px; box-shadow:0 22px 60px #13283d1f; }
-  .hero { position:relative; min-height:310px; padding:52px clamp(34px,6vw,74px); overflow:hidden; background:var(--paper); border-bottom:2px solid var(--ink); }
+  html { background:var(--paper); scroll-behavior:smooth; }
+  body { margin:0; color:var(--ink); background:var(--paper); font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; -webkit-font-smoothing:antialiased; }
+  .shell { width:100%; min-height:100vh; overflow:hidden; background:var(--paper); }
+  .hero { position:relative; min-height:330px; padding:58px clamp(40px,6.5vw,128px); overflow:hidden; background:var(--paper); border-bottom:2px solid var(--ink); }
   .grid { position:absolute; inset:0; opacity:.07; background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px); background-size:34px 34px; }
-  .art { position:absolute; z-index:0; width:420px; right:-94px; top:-106px; transform:rotate(-8deg); }
+  .art { position:absolute; z-index:0; width:clamp(420px,29vw,600px); right:clamp(-130px,-5vw,-72px); top:-106px; transform:rotate(-8deg); }
   .hero-copy { position:relative; z-index:1; max-width:650px; }
   .label { margin:0 0 15px; color:var(--coral); font:800 12px/1 Arial,sans-serif; letter-spacing:.18em; }
   h1 { margin:0; font-size:clamp(42px,5vw,70px); line-height:1; letter-spacing:.08em; font-weight:900; }
   .role { margin:16px 0 0; color:#344a60; font-size:clamp(17px,2vw,23px); line-height:1.45; font-weight:700; letter-spacing:.04em; }
-  .contact { position:absolute; z-index:2; right:clamp(34px,6vw,74px); bottom:39px; width:236px; padding:14px 17px; color:#fff; background:var(--ink); border-left:6px solid var(--yellow); font-size:13px; line-height:1.62; box-shadow:8px 8px 0 #e8584130; }
+  .contact { position:absolute; z-index:2; right:clamp(40px,6.5vw,128px); bottom:39px; width:236px; padding:14px 17px; color:#fff; background:var(--ink); border-left:6px solid var(--yellow); font-size:13px; line-height:1.62; box-shadow:8px 8px 0 #e8584130; }
   .contact b { color:var(--yellow); font:800 11px/1 Arial,sans-serif; letter-spacing:.12em; }
-  .layout { display:grid; grid-template-columns:minmax(0,1fr) 292px; align-items:stretch; }
-  .main { padding:42px clamp(34px,5vw,64px) 56px; min-width:0; }
-  .aside { padding:38px 28px; background:var(--panel); border-left:1px solid #ccdde3; }
+  .layout { display:grid; grid-template-columns:minmax(0,1fr) clamp(300px,20vw,410px); align-items:stretch; }
+  .main { padding:48px clamp(40px,6.5vw,128px) 64px; min-width:0; }
+  .aside { padding:42px clamp(28px,2.2vw,44px); background:var(--panel); border-left:1px solid #ccdde3; }
   .intro { max-width:760px; margin:0; padding:0 0 30px; border-bottom:1px solid var(--line); font-size:18px; line-height:1.8; font-weight:650; }
   .intro strong { color:var(--coral); }
   .section-title { display:flex; align-items:center; gap:12px; margin:33px 0 18px; color:var(--ink); font:800 13px/1 Arial,sans-serif; letter-spacing:.15em; }
   .section-title:before { content:""; width:40px; height:8px; background:var(--yellow); }
-  .pillars { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+  .pillars { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; max-width:1320px; }
   .pillar { min-height:190px; padding:21px 18px; border-top:5px solid var(--ink); background:#e6f0f4; }
   .pillar:nth-child(2) { background:#fff3c8; border-color:var(--yellow); }
   .pillar:nth-child(3) { background:#ffe3dd; border-color:var(--coral); }
   .pillar .num { display:block; color:var(--coral); font:900 29px/1 Arial,sans-serif; }
   .pillar h3 { margin:17px 0 9px; font-size:17px; }
   .pillar p { margin:0; font-size:13px; line-height:1.65; }
-  .services { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px 34px; }
+  .services { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px 34px; max-width:1320px; }
   .service { padding-top:14px; border-top:1px solid var(--line); }
   .service b { display:block; margin-bottom:7px; font-size:17px; }
   .service span { font-size:13px; line-height:1.7; color:#273f52; }
@@ -49,10 +49,10 @@
   .aside-title { margin:31px 0 11px; color:var(--coral); font:800 12px/1 Arial,sans-serif; letter-spacing:.12em; }
   .mini-list { margin:0; padding:0; list-style:none; font-size:12.5px; line-height:1.55; font-weight:600; }
   .mini-list li { padding:8px 0; border-bottom:1px solid #bdd0d8; }
-  footer { display:flex; justify-content:space-between; gap:20px; padding:19px clamp(34px,6vw,74px); color:var(--muted); background:#fff; border-top:2px solid var(--ink); font:700 11px/1.3 Arial,sans-serif; letter-spacing:.11em; }
+  footer { display:flex; justify-content:space-between; gap:20px; padding:19px clamp(40px,6.5vw,128px); color:var(--muted); background:#fff; border-top:2px solid var(--ink); font:700 11px/1.3 Arial,sans-serif; letter-spacing:.11em; }
   footer b { color:var(--coral); }
   @media (max-width: 920px) {
-    .shell { width:min(100% - 32px,760px); margin:16px auto; }
+    .shell { width:100%; margin:0; }
     .hero { min-height:350px; padding:44px 36px; }
     .art { width:330px; right:-112px; top:-50px; opacity:.92; }
     .contact { right:36px; bottom:31px; }
@@ -64,7 +64,6 @@
     .aside .mini-list + .aside-title { grid-column:1/-1; }
   }
   @media (max-width: 620px) {
-    .shell { width:100%; margin:0; border:0; border-radius:0; box-shadow:none; }
     .hero { min-height:370px; padding:35px 24px; }
     .art { width:280px; right:-116px; top:-44px; }
     h1 { font-size:43px; }
