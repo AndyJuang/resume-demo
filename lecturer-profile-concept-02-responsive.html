@@ -43,6 +43,11 @@
   .play:after { content:""; position:absolute; left:17px; top:11px; border-left:15px solid var(--ink); border-top:10px solid transparent; border-bottom:10px solid transparent; }
   .channel b { display:block; font-size:16px; }
   .channel span { display:block; margin-top:6px; color:#d4e1e6; font-size:12.5px; line-height:1.65; }
+  .video-feature { max-width:960px; margin-top:24px; }
+  .video-label { display:flex; align-items:center; gap:10px; margin:0 0 11px; color:var(--coral); font:800 12px/1 Arial,sans-serif; letter-spacing:.13em; }
+  .video-label:before { content:""; width:28px; height:7px; background:var(--coral); }
+  .video-frame { aspect-ratio:16 / 9; overflow:hidden; background:var(--ink); box-shadow:10px 10px 0 #f6c52a; }
+  .video-frame iframe { display:block; width:100%; height:100%; border:0; }
   .metric { padding:0 0 21px; margin:0 0 19px; border-bottom:1px solid var(--line); }
   .metric strong { display:block; font:900 39px/.92 Arial,sans-serif; letter-spacing:-.07em; }
   .metric span { display:block; margin-top:8px; font-size:12px; font-weight:700; }
@@ -103,6 +108,10 @@
         <article class="service"><b>頻道與內容合作</b><span>《欸那個 AJ》YouTube 頻道承接 AI 工具、教育課程與企業數位轉型相關品牌合作。</span></article>
       </div>
       <div class="channel"><span class="play"></span><div><b>內容傳播經驗</b><span>曾主持《泛科學院》，累積 24 萬訂閱與上千萬次觀看，並推出 10 套以上線上課程；現經營《欸那個 AJ》推廣生成式 AI 必備技能與素養。</span></div></div>
+      <section class="video-feature" aria-labelledby="featured-video-title">
+        <h2 id="featured-video-title" class="video-label">FEATURED VIDEO</h2>
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/v9zGMjNxpOo" title="莊哲昀 AJ 精選影片" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      </section>
     </section>
     <aside class="aside">
       <div class="metric"><strong>10K+</strong><span>累積參與培訓學員</span></div>
